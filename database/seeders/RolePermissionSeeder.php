@@ -56,33 +56,7 @@ class RolePermissionSeeder extends Seeder
         ];
 
 
-        // $permissionadmin = [
-
-        //     [
-        //         'group_name' => 'dashboard',
-        //         'permissions' => [
-        //             'dashboard.view',
-
-        //         ]
-        //     ],
-        //     [
-        //         'group_name' => 'blog',
-        //         'permissions' => [
-        //             // Blog Permissions
-        //             'blog.create',
-        //             'blog.view',
-        //             'blog.edit',
-
-
-        //         ]
-        //     ],
-
-
-
-        // ];
-
-        // $roleSuperAdmin = Role::create(['name' => 'superadmin', 'guard_name' => 'web']);
-
+    
 
         for ($i = 0; $i < count($permissionsuper); $i++) {
             $permissionGroup = $permissionsuper[$i]['group_name'];
