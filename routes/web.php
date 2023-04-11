@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,5 @@ Route::get('/roles-edit/{id}', [RoleController::class, 'edit'])->name('role.edit
 Route::post('/roles-update/{id}', [RoleController::class, 'update'])->name('role.update');
 Route::post('/roles-delete/{id}', [RoleController::class, 'destroy'])->name('role.destroy');
 
+Route::get('/user-create', [UserController::class, 'create']);
+Route::post('/user-store', [UserController::class, 'store']);

@@ -24,11 +24,11 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
+                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Users</span></a>
                         <ul class="collapse">
-                            <li><a href="barchart.html">bar chart</a></li>
-                            <li><a href="linechart.html">line Chart</a></li>
-                            <li><a href="piechart.html">pie chart</a></li>
+                            <li><a href="{{url('/user-create')}}">Create User</a></li>
+                            <li><a href="linechart.html">All User</a></li>
+
                         </ul>
                     </li>
 
