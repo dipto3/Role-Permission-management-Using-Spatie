@@ -34,4 +34,9 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+    public function index(){
+        $users = User::all();
+
+        return view('backend.pages.user.index',compact('users'));
+    }
 }

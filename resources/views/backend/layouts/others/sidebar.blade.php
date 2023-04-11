@@ -27,7 +27,7 @@
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Users</span></a>
                         <ul class="collapse">
                             <li><a href="{{url('/user-create')}}">Create User</a></li>
-                            <li><a href="linechart.html">All User</a></li>
+                            <li><a href="{{url('/users')}}">All User</a></li>
 
                         </ul>
                     </li>

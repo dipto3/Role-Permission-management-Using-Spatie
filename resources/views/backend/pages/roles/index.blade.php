@@ -32,7 +32,7 @@
                                     @endforeach
                                 </td>
 
-                                <td>
+                                <td class="d-flex">
                                  <a href="{{url('/roles-edit/'.$role->id)}}" class="btn btn-info">Edit</a>
                                  <form action="{{url('/roles-delete/'.$role->id)}}" method="post">
                                     @csrf

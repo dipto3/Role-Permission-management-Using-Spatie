@@ -35,3 +35,4 @@ Route::post('/roles-delete/{id}', [RoleController::class, 'destroy'])->name('rol
 
 Route::get('/user-create', [UserController::class, 'create']);
 Route::post('/user-store', [UserController::class, 'store']);
+Route::get('/users', [UserController::class, 'index']);
