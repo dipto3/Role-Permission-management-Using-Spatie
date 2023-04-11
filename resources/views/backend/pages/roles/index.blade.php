@@ -12,7 +12,7 @@
                             <tr class="text-white">
                                 <th scope="col">ID</th>
                                 <th scope="col">Name</th>
-
+                                <th scope="col">Permission</th>
                                 <th scope="col">action</th>
                             </tr>
                         </thead>
@@ -23,6 +23,14 @@
                             <tr>
                                 <th scope="row">{{$role->id}}</th>
                                 <td>{{$role->name}}</td>
+
+                                <td>
+                                    @foreach ($role->permissions as $perm)
+                                        <span class="badge badge-info mr-1">
+                                            {{ $perm->name }}
+                                        </span>
+                                    @endforeach
+                                </td>
 
                                 <td>
                                  <a href="{{url('/roles-edit/'.$role->id)}}" class="btn btn-info">Edit</a>

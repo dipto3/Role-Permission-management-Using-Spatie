@@ -35,10 +35,33 @@ class RoleController extends Controller
     }
 
     public function edit($id){
+
         $role = Role::find($id);
         $permissions = Permission::all();
         $permission_groups = User::getpermissionGroups();
         return view('backend.pages.roles.edit',compact('role','permissions','permission_groups'));
 
     }
+
+    public function update(Request $request,$id){
+
+
+        $role = Role::find($id);
+       $permissions = $request->input('permissions');
+
+       if (!empty($permissions)) {
+           $role->syncPermissions($permissions);
+       }
+        return redirect()->back();
+    }
+
+    public function destroy($id){
+
+        $role = Role::find($id);
+        $role->delete();
+        return redirect()->back();
+    }
+
+
+
 }

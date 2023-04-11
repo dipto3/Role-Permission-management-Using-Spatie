@@ -1,12 +1,12 @@
 @extends('backend.layouts.master')
 
 @section('content')
-<div class="col-lg-6 mt-5">
+<div class="col-md-12 mt-5">
      <div class="card">
          <div class="card-body">
              <h4 class="header-title">Create Role</h4>
 
-        <form action="" method="post">
+        <form action="{{url('/roles-update/'.$role->id)}}" method="post">
             @csrf
             <div class="form-group">
                 <label for="">Role name</label>
@@ -17,7 +17,7 @@
                 <label for="name">Permissions</label>
 
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="checkPermissionAll" value="1">
+                    <input type="checkbox" class="form-check-input" id="checkPermissionAll" value="1" >
                     <label class="form-check-label" for="checkPermissionAll">All</label>
                 </div>
                 <hr>
