@@ -13,7 +13,7 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">User Role</th>
+                                <th scope="col">Role</th>
                                 <th scope="col">action</th>
                             </tr>
                         </thead>
