@@ -4,7 +4,7 @@
 <div class="col-lg-12 mt-5">
     <div class="card">
         <div class="card-body">
-            <h4 class="header-title">Role List</h4>
+            <h4 class="header-title">Roles List</h4>
             <div class="single-table">
                 <div class="table-responsive">
                     <table class="table text-center">
@@ -13,7 +13,7 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Roles</th>
+                                <th scope="col">User Role</th>
                                 <th scope="col">action</th>
                             </tr>
                         </thead>
