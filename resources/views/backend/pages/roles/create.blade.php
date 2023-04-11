@@ -1,7 +1,7 @@
 @extends('backend.layouts.master')
 
 @section('content')
-<div class="col-lg-6 mt-5">
+<div class="col-lg-12 mt-5">
      <div class="card">
          <div class="card-body">
              <h4 class="header-title">Create Role</h4>
@@ -39,7 +39,7 @@
                             @endphp
                             @foreach ($permissions as $permission)
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" name="permissions[]" id="checkPermission{{ $permission->id }}" value="{{ $permission->name }}">
+                                    <input type="checkbox" class="form-check-input" name="permissions[]"  id="checkPermission{{ $permission->id }}" value="{{ $permission->name }}">
                                     <label class="form-check-label" for="checkPermission{{ $permission->id }}">{{ $permission->name }}</label>
                                 </div>
                                 @php  $j++; @endphp

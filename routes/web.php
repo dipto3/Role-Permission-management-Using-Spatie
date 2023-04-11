@@ -28,6 +28,6 @@ Route::get('/roles', [RoleController::class, 'index'])->name('role.index');
 
 Route::get('/roles-create', [RoleController::class, 'create'])->name('role.index');
 Route::post('/roles-store', [RoleController::class, 'store'])->name('role.store');
-
+Route::get('/roles-edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
 
 

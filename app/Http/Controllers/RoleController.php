@@ -33,4 +33,12 @@ class RoleController extends Controller
        }
         return redirect()->back();
     }
+
+    public function edit($id){
+        $role = Role::find($id);
+        $permissions = Permission::all();
+        $permission_groups = User::getpermissionGroups();
+        return view('backend.pages.roles.edit',compact('role','permissions','permission_groups'));
+
+    }
 }

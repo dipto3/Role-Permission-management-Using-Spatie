@@ -1,10 +1,10 @@
 @extends('backend.layouts.master')
 
 @section('content')
-<div class="col-lg-6 mt-5">
+<div class="col-lg-12 mt-5">
     <div class="card">
         <div class="card-body">
-            <h4 class="header-title">Thead Primary</h4>
+            <h4 class="header-title">Roles List</h4>
             <div class="single-table">
                 <div class="table-responsive">
                     <table class="table text-center">
@@ -25,7 +25,7 @@
                                 <td>{{$role->name}}</td>
 
                                 <td>
-                                 <a href="" class="btn btn-info">Edit</a>
+                                 <a href="{{url('/roles-edit/'.$role->id)}}" class="btn btn-info">Edit</a>
                                  <a href="" class="btn btn-danger">Delete</a>
 
 
