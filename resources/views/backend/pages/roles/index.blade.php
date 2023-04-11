@@ -34,8 +34,10 @@
 
                                 <td>
                                  <a href="{{url('/roles-edit/'.$role->id)}}" class="btn btn-info">Edit</a>
-                                 <a href="" class="btn btn-danger">Delete</a>
-
+                                 <form action="{{url('/roles-delete/'.$role->id)}}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
 
                                 </td>
 

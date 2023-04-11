@@ -47,6 +47,9 @@ class RoleController extends Controller
 
 
         $role = Role::find($id);
+        $role->name = $request->name;
+        $role->save();
+
        $permissions = $request->input('permissions');
 
        if (!empty($permissions)) {
