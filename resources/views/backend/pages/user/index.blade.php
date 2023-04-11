@@ -43,7 +43,7 @@
 
                                 <td class="mx-auto">
                                  <a href="" class="btn btn-info">Edit</a><br><br>
-                                 <form action="" method="post">
+                                 <form action="{{url('/user-delete/'.$user->id)}}" method="post">
                                     @csrf
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>

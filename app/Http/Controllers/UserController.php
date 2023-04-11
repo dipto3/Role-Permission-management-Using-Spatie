@@ -39,4 +39,11 @@ class UserController extends Controller
 
         return view('backend.pages.user.index',compact('users'));
     }
+
+    public function destroy($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back();
+
+    }
 }
