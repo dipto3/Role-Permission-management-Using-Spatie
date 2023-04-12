@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    
     public function create(){
 
         $roles = Role::all();

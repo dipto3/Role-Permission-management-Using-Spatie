@@ -6,11 +6,25 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Auth;
 class RoleController extends Controller
 {
+
+    public $user;
+
+    public function __construct(){
+
+        $this->middleware(function($request , $next){
+            $this->user = Auth::guard('web')->user();
+
+            return $next($request);
+        });
+    }
     public function index(){
 
+        if(is_null($this->user) || !$this->user->can('role.view')){
+            abort(403,'Unauthorized Access!');
+        }
         $roles = Role::all();
         return view('backend.pages.roles.index',compact('roles'));
     }
@@ -36,6 +50,9 @@ class RoleController extends Controller
 
     public function edit($id){
 
+        if(is_null($this->user) || !$this->user->can('role.edit')){
+            abort(403,'Unauthorized Access!');
+        }
         $role = Role::find($id);
         $permissions = Permission::all();
         $permission_groups = User::getpermissionGroups();
@@ -60,6 +77,9 @@ class RoleController extends Controller
 
     public function destroy($id){
 
+        if(is_null($this->user) || !$this->user->can('role.delete')){
+            abort(403,'Unauthorized Access!');
+        }
         $role = Role::find($id);
         $role->delete();
         return redirect()->back();
