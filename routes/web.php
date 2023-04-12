@@ -19,8 +19,11 @@ use App\Http\Controllers\LoginController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-
 Auth::routes();
+Route::middleware(['blockIP'])->group(function () {
+
+
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -29,16 +32,15 @@ Route::get('/', [LoginController::class, 'loginform'])->name('admin.index');
 Route::post('/login-check', [LoginController::class, 'login']);
 Route::get('/roles', [RoleController::class, 'index'])->name('role.index');
 
-Route::get('/roles-create', [RoleController::class, 'create'])->name('role.index');
+Route::get('/roles-create', [RoleController::class, 'create'])->name('role.index')->middleware('can:role.create');;
 Route::post('/roles-store', [RoleController::class, 'store'])->name('role.store');
 Route::get('/roles-edit/{id}', [RoleController::class, 'edit'])->middleware('can:role.view');
 Route::post('/roles-update/{id}', [RoleController::class, 'update'])->name('role.update');
-Route::post('/roles-delete/{id}', [RoleController::class, 'destroy'])->name('role.destroy');
+Route::post('/roles-delete/{id}', [RoleController::class, 'destroy'])->name('role.destroy')->middleware('can:role.delete');;
 
 Route::get('/user-create', [UserController::class, 'create']);
 Route::post('/user-store', [UserController::class, 'store']);
 Route::get('/users', [UserController::class, 'index']);
 Route::post('/user-delete/{id}', [UserController::class, 'destroy']);
 
-Route::post('users', [UserController::class, 'store'])
-    ->middleware('can:create_users');
+});
