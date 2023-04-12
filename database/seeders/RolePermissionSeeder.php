@@ -22,13 +22,7 @@ class RolePermissionSeeder extends Seeder
 
         $permissionsuper = [
 
-            [
-                'group_name' => 'dashboard',
-                'permissions' => [
-                    'dashboard.view',
 
-                ]
-            ],
             [
                 'group_name' => 'blog',
                 'permissions' => [
@@ -37,6 +31,17 @@ class RolePermissionSeeder extends Seeder
                     'blog.view',
                     'blog.edit',
                     'blog.delete',
+
+                ]
+            ],
+            [
+                'group_name' => 'blog',
+                'permissions' => [
+                    // user Permissions
+                    'user.create',
+                    'user.view',
+                    'user.edit',
+                    'user.delete',
 
                 ]
             ],
@@ -56,7 +61,7 @@ class RolePermissionSeeder extends Seeder
         ];
 
 
-    
+
 
         for ($i = 0; $i < count($permissionsuper); $i++) {
             $permissionGroup = $permissionsuper[$i]['group_name'];

@@ -16,11 +16,13 @@ class RoleController extends Controller
 
         $this->middleware(function($request , $next){
             $this->user = Auth::guard('web')->user();
-
             return $next($request);
         });
     }
     public function index(){
+
+
+
 
         if(is_null($this->user) || !$this->user->can('role.view')){
             abort(403,'Unauthorized Access!');

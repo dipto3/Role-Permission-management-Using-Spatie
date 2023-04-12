@@ -33,12 +33,15 @@
                                 </td>
 
                                 <td class="d-flex">
+                                    @if(Auth::guard('web')->user()->can('role.edit'))
                                  <a href="{{url('/roles-edit/'.$role->id)}}" class="btn btn-info">Edit</a>
+                                 @endif
+                                 @if(Auth::guard('web')->user()->can('role.delete'))
                                  <form action="{{url('/roles-delete/'.$role->id)}}" method="post">
                                     @csrf
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
-
+                                @endif
                                 </td>
 
                             </tr>

@@ -6,12 +6,22 @@ use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public $user;
 
-    
+    public function __construct(){
+
+        $this->middleware(function($request , $next){
+            $this->user = Auth::guard('web')->user();
+            return $next($request);
+        });
+    }
+
+
     public function create(){
 
         $roles = Role::all();
@@ -37,6 +47,9 @@ class UserController extends Controller
         return redirect()->back();
     }
     public function index(){
+        if(is_null($this->user) || !$this->user->can('role.view')){
+            abort(403,'Unauthorized Access!');
+        }
         $users = User::all();
 
         return view('backend.pages.user.index',compact('users'));
