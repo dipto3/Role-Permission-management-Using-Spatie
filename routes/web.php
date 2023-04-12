@@ -24,7 +24,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [DashboardController::class, 'index'])->name('admin.index');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.index');
+Route::get('/', [LoginController::class, 'loginform'])->name('admin.index');
+Route::post('/login-check', [LoginController::class, 'login']);
 Route::get('/roles', [RoleController::class, 'index'])->name('role.index');
 
 Route::get('/roles-create', [RoleController::class, 'create'])->name('role.index');
@@ -37,3 +39,5 @@ Route::get('/user-create', [UserController::class, 'create']);
 Route::post('/user-store', [UserController::class, 'store']);
 Route::get('/users', [UserController::class, 'index']);
 Route::post('/user-delete/{id}', [UserController::class, 'destroy']);
+
+
