@@ -31,7 +31,7 @@ Route::get('/roles', [RoleController::class, 'index'])->name('role.index');
 
 Route::get('/roles-create', [RoleController::class, 'create'])->name('role.index');
 Route::post('/roles-store', [RoleController::class, 'store'])->name('role.store');
-Route::get('/roles-edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+Route::get('/roles-edit/{id}', [RoleController::class, 'edit'])->middleware('can:role.view');
 Route::post('/roles-update/{id}', [RoleController::class, 'update'])->name('role.update');
 Route::post('/roles-delete/{id}', [RoleController::class, 'destroy'])->name('role.destroy');
 
@@ -40,4 +40,5 @@ Route::post('/user-store', [UserController::class, 'store']);
 Route::get('/users', [UserController::class, 'index']);
 Route::post('/user-delete/{id}', [UserController::class, 'destroy']);
 
-
+Route::post('users', [UserController::class, 'store'])
+    ->middleware('can:create_users');

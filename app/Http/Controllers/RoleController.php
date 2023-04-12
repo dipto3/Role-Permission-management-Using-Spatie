@@ -51,7 +51,7 @@ class RoleController extends Controller
     }
 
     public function edit($id){
-
+       return "Marakha";
         if(is_null($this->user) || !$this->user->can('role.edit')){
             abort(403,'Unauthorized Access!');
         }

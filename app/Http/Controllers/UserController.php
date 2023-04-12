@@ -47,7 +47,7 @@ class UserController extends Controller
         return redirect()->back();
     }
     public function index(){
-        if(is_null($this->user) || !$this->user->can('role.view')){
+        if(is_null($this->user) || !$this->user->can('user.view')){
             abort(403,'Unauthorized Access!');
         }
         $users = User::all();
@@ -56,6 +56,9 @@ class UserController extends Controller
     }
 
     public function destroy($id){
+        if(is_null($this->user) || !$this->user->can('user.delete')){
+            abort(403,'Unauthorized Access!');
+        }
         $user = User::find($id);
         $user->delete();
         return redirect()->back();

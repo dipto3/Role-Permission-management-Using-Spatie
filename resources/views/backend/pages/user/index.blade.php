@@ -42,12 +42,15 @@
                                 </td>
 
                                 <td class="mx-auto">
+                                    @if(Auth::guard('web')->user()->can('user.edit'))
                                  <a href="" class="btn btn-info">Edit</a><br><br>
+                                 @endif
+                                 @if(Auth::guard('web')->user()->can('user.edit'))
                                  <form action="{{url('/user-delete/'.$user->id)}}" method="post">
                                     @csrf
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
-
+                                @endif
                                 </td>
 
                             </tr>
