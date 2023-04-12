@@ -37,7 +37,8 @@
     <div class="login-area login-s2">
         <div class="container">
             <div class="login-box ptb--100">
-                <form>
+                <form action="{{url('/login-check')}}" method="POST">
+                    @csrf
                     <div class="login-form-head">
                         <h4>Sign In</h4>
                         <p>Hello there, Sign in and start managing your Admin Template</p>
@@ -45,13 +46,13 @@
                     <div class="login-form-body">
                         <div class="form-gp">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" id="exampleInputEmail1">
+                            <input type="email" name="email" id="exampleInputEmail1">
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
                         <div class="form-gp">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" id="exampleInputPassword1">
+                            <input type="password" name="password" id="exampleInputPassword1">
                             <i class="ti-lock"></i>
                             <div class="text-danger"></div>
                         </div>
